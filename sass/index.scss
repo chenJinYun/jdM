@@ -1,0 +1,249 @@
+@import 'base.scss';
+@import 'normalize.scss';
+// 设置容器最大最小宽度
+.index-layout{
+    min-width: 320px;
+    max-width: 640px;
+    margin:0 auto;
+}
+// 头部导航，两边写死，中间自适应
+header{
+    height: 40px;
+    display:flex;
+    align-items: center;
+    /*变量保存，直接用变量名*/
+    background-color: rgba(235,48,61,0);
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    a{
+        color:white;
+        width: 60px;
+        line-height: 40px;
+        text-align: center;
+    }
+    // 图片
+    a:first-child{
+        width: 60px;
+        height: 21px;
+        background: url(../images/sprites.png) no-repeat 0 -109px;
+        background-size: 200px 200px;
+        margin:0 10px;
+    }
+    input{
+        height: 30px;
+        border-radius: 15px;
+        flex:1;
+    }
+}
+
+.index-banner{
+    overflow: hidden;
+    position: relative;
+    // 轮播图,容器的宽度设置成100%*图片数，每张图片占一份
+    .banner-img{
+        width: 1000%;
+        transform: translateX(-10%);
+        li{
+            // 8张图片，每张图片占父元素的8分之一
+            width: 10%;
+            float:left;
+            a{
+                width: 100%;
+                display:block;
+                img{
+                width: 100%;
+                display: block;
+                }
+            }
+        }
+    }
+    // 小圆点
+    .banner-index{
+        position: absolute;
+        bottom: 4px;
+        left:50%;
+        transform: translate(-50%);
+        height: 5px;
+        li{
+            height: 6px;
+            width: 6px;
+            float: left;
+            margin-right:3px;
+            background-color: white;
+            border-radius: 50%;
+        }
+         .current{
+            background-color: #666;
+            box-shadow: 0 0 20px 5px yellowgreen;
+        }
+    }
+}
+// 中间导航
+.index-nav{
+    .nav-banner{
+        width: 100%;
+        display: flex;
+        flex-wrap:wrap;
+        margin-top:10px;
+        li{
+            width: 25%;
+        
+            a{
+                display: block;
+                width: 100%;
+                // padding:;
+            
+                img{
+                    display:block;
+                    width: 60%;
+                    margin:0 auto;
+                 }
+                p{
+                    font-size:12px;
+                    padding:10px 0;
+                    text-align: center;
+                    color:#666;
+                }
+              }
+
+        }
+    }
+}
+// 主体内容
+.index-main{
+    background-color: greenyellow;
+    padding:10px 5px 0;
+    // 通用样式
+    section{
+        width: 100%;
+        margin-bottom: 10px;
+        .top{
+            height: 32px;
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+         }
+        .bottom{
+            background-color: white;
+            
+        }
+    }
+    // 秒杀部分
+ .second-kill{
+        // 头部
+        .top{
+             display:flex;
+            justify-content: space-between;
+            .left{
+                 display:flex;
+                 font-size:14px;
+                 align-items: center;
+                span{
+                    margin-left:5px;
+                }
+                span:nth-child(1){
+                    width: 20px;
+                    height: 25px;
+                    background: url(../images/seckill-icon.png) no-repeat center;
+                    background-size: 20px 25px;
+                }
+                span:nth-child(2){
+                    color:$jdRed;
+                }
+                ul{
+                    display:flex;
+                    margin-left:5px;
+                    li{
+                        background-color: black;
+                        color:white;
+                        margin-right:2px;
+                    }
+                    li:nth-child(3n){
+                        background-color: white;
+                        color:black;
+                    }
+                }
+            }
+            .right{
+                a{
+                    font-size:14px;
+                    color:#666;
+                    line-height: 32px;
+                    margin-right:5px;
+                    }
+            }
+        }
+        // 底部
+        .bottom{
+            padding-top:5px;
+            ul{
+                width: 100%;
+                 display:flex;
+                li{
+                    flex:1;
+                    a{
+                        display: block;
+                        width: 100%;
+                        img{
+                            width: 60%;
+                            display: block;
+                            margin:0 auto;
+                        }                   
+                    }
+                      p{
+                            text-align: center;
+                            font-size: 12px;
+                            padding:5px 0;
+                            color:#666;
+                        }
+                        p:nth-of-type(1){
+                            color:red;
+                        }
+                        p:nth-of-type(2){
+                            text-decoration: line-through;
+                        }
+                }
+                  li:nth-of-type(2) a{
+                        border-left:1px solid black;
+                        border-right:1px solid yellowgreen;
+                    }
+            }
+        }
+    }
+    // 京东超市
+    section:not(.second-kill){
+        .top{
+               display: flex;
+                align-items: center; 
+                        
+            a{
+            margin-left:5px; 
+            width: 100%;
+            padding-left:10px;
+            border-left:4px solid $jdRed;
+            color:#666;
+            }
+        }
+        .bottom{
+            a{
+                width: 50%;  
+                display: block;   
+                img{
+                    width: 100%;
+                    display:block;
+                    // margin: 1px 1px 0 0;
+                }  
+            }
+            // .line{
+            //      border-left:1px solid #ccc;
+            //     border-bottom:1px solid #ccc;
+            // }
+            //  .line2{
+            //      border-left:1px solid #ccc;
+            // }
+        }
+    }
+
+}

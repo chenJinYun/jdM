@@ -1,0 +1,95 @@
+// 去除 m p
+*{
+  margin: 0;
+  padding: 0;
+  // 盒子模型
+  box-sizing: border-box;
+  //  手指触摸 高亮效果
+  // -webkit-tap-highlight-color: 
+}
+
+ul,ol{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+// 快速浮动
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+// 清除浮动
+.clearfix::before,
+.clearfix::after{
+  content:'';
+  display: block;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  clear: both;
+}
+// 这个 移动端 可以不写
+// .clearfix{
+//   zoom: 1;
+// }
+
+// 去除input标签的样式
+input{
+  // 边框
+  border:none;
+  // 轮廓线
+  outline: none;
+}
+
+// 快速设置四边的边框
+[class^='bd-']{
+  position: relative;
+}
+[class^='bd-']::before{
+    position: absolute;
+}
+[class^='bd-'].white::before{
+  background-color: white;
+}
+.bd-t::before{
+  content: '';
+  width: 100%;
+  height: 1px;
+  top:0;
+  left:0;
+  background-color: #666;
+}
+.bd-b::before{ 
+  content: '';
+  width: 100%;
+  height: 1px;
+  bottom:0;
+  left:0;
+  background-color: #666;
+  
+}
+.bd-l::before{
+   content: '';
+  width: 1px;
+  height: 100%;
+  bottom:0;
+  left:0;
+  background-color: #666;
+  
+}
+.bd-r::before{
+   content: '';
+   width: 1px;
+  height: 100%;
+  bottom:0;
+  right:0;
+  background-color: #666;
+  
+}
+
+// 京东红
+// 变量 京东红
+$jdRed:rgb(201, 21, 35);
